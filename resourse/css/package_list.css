@@ -1,0 +1,30 @@
+h1{
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+}
+.wrapper{
+  width: 80%;
+  margin: 0 auto;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+td, th{
+  display: inline-block;
+  width: 10%;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: center!important;
+  border: 1px solid #000;
+  padding: 10px 15px;
+}
+td:last-child, th:last-child{
+  width: 15%;
+}
+tr{
+  display: flex; 
+  justify-content: stretch;
+}
