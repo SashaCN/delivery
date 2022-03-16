@@ -1,17 +1,44 @@
 <?php 
 
 require_once "vendor/Controller.php";
+require_once "app/models/User.php";
 
 class AunthController extends Controller
 {
   public function actionRegistr ()
   {
-    echo "hello";
-    $this->render('user/registr');
+    $user = new User();
+
+    if (!empty($_POST)) {
+      if ($user->load($_POST) && $user->save()) {
+        return $this->render("messages/success", array(
+          'message' => 'Регистрация успешна!'
+        ));
+      }
+    }
+    
+    $this->render('user/registr', array(
+      'user' => $user
+    ));
   }
   public function actionLogin ()
   {
+    $user = new User();
+     
+    if (!empty($_POST)) {
+      $user->load($_POST);
+      if ($user->login()) {
+        $this->render("messages/success", array(
+          'message' => "Successful login"
+        ));
+      } 
 
+    }
+
+
+    $this->render('user/login', array(
+      'user' => $user
+    ));
   }
   public function actionLogout ()
   {

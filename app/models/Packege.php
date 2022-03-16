@@ -106,10 +106,6 @@ class Package extends Model
   }
   public function save ()
   {
-    $pdo = Db::connection(); 
-
-    $stmt = $pdo->prepare('INSERT INTO package (`pack_type_id`, `created_at`, `User_id_from`, `Address_id`, `Status`, `Manager_id`, `Address_from`) VALUES (:pack_type, :date_add, :user_from, :address_to, :pack_status, :manager, :address_from)');
-
     $data = array(
       'pack_type' => $this->type,
       'date_add' => $this->date,
@@ -119,6 +115,18 @@ class Package extends Model
       'manager' => $this->manager,
       'address_from' => $this->address_from,
     );
+    if (!empty($this->id)) {
+      $data['pack_id'] = $this->id;
+      $sql = 'UPDATE `package` SET `Pack_type_id`=:pack_type,`Created_at`=:date_add,`User_id_from`=:user_from,`Address_id`=:address_to,`Status`=:pack_status,`Manager_id`=:manager,`Address_from`=:address_from WHERE `Pack_id` = :pack_id';
+    } else {
+      $sql = 'INSERT INTO package (`pack_type_id`, `created_at`, `User_id_from`, `Address_id`, `Status`, `Manager_id`, `Address_from`) VALUES (:pack_type, :date_add, :user_from, :address_to, :pack_status, :manager, :address_from)';
+    }
+
+    $pdo = Db::connection(); 
+
+    $stmt = $pdo->prepare($sql);
+
+    
 
     $stmt->execute($data);
     $this->id = $pdo->lastInsertId();

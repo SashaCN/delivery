@@ -12,7 +12,7 @@ class PackageController extends Controller
       "packages" => $packages
     ));
   }
-  public function ActionView ($data)
+  public function actionView ($data)
   {
     if (isset($data["id"])) {
       $package = Package::find($data["id"]);
@@ -21,7 +21,7 @@ class PackageController extends Controller
       ));
     }
   }
-  public function ActionCreate () 
+  public function actionCreate () 
   {
     $package = new Package();
 
@@ -33,15 +33,23 @@ class PackageController extends Controller
 
     $this->render("manager/package/create");
   }
-  public function ActionUpdate ($data) 
+  public function actionUpdate ($data) 
   {
     if (isset($data["id"])) {
       $package = Package::find($data["id"]);
       
+      if (!empty($_POST)) {
+        $package = new Package();
+        $package->load($_POST);
+        $package->id = $data["id"];
+        if (empty($package->error)) {
+          $package->save();
+        }
+      }
+
       $this->render("manager/package/update", array(
         "package" => $package
       ));
     }
-
   }
 }
