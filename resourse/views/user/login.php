@@ -15,6 +15,7 @@
     <input type="password" name="password" placeholder="password">
     <input type="submit" value="Send">
   </form>
+  <script src="resourse/views/user/show_password.js"></script>
 </body>
 
 </html>

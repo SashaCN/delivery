@@ -7,8 +7,23 @@
   <title>Create package</title>
 </head>
 <body>
+  <?php 
+  
+    $bd_data = array(
+      'type' => array(),
+      'user_from' => array(),
+      'address_to' => array(),
+      'status' => array(),
+      'manager' => array(),
+      'address_from' => array(),
+    );
+
+    
+
+  ?>
   <form action="" method="POST">
-    <input type="text" name="type" placeholder="type">
+    <select name="type" placeholder="Type">
+      <?php ?>
     <input type="date" name="date"> 
     <input type="text" name="user_from" placeholder="User from"> 
     <input type="text" name="address_to" placeholder="Address to"> 

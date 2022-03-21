@@ -13,7 +13,7 @@ class Model
         $this->$nameMethod($value);
       } else {
         if (property_exists($this, $key)) {
-          $this->$key = $value;
+          $this->$key = $value; 
         }
       }
     }
