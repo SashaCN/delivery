@@ -18,10 +18,16 @@
     <p class="password_line">
       <input type="password" name="password" placeholder="password">
       <input type="checkbox" class="show">
+      <span class="eye"></span>
+    </p>
+    <p class="password_line">
+      <input type="password" name="confirm_password" placeholder="Confirm password">
+      <input type="checkbox" class="show">
+      <span class="eye"></span>
     </p>
     <input type="submit" value="Send">
   </form>
-  <script src="resourse/js/show_password.js"></script>
+  <script src="resourse/js/password.js"></script>
 </body>
 
 </html>
