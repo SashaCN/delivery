@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Package list</title>
-  <link rel="stylesheet" href="resourse/css/package_list.css">
+  <link rel="stylesheet" href="../resourse/css/package_list.css">
 </head>
 <body>
   <h1>All packages</h1>
@@ -20,6 +20,7 @@
             <th>Status</th>
             <th>Manager</th>
             <th>Address from</th>
+            <th></th>
             <th></th>
           </tr>
           <?php foreach ($data["packages"] as $package):?>

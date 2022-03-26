@@ -7,7 +7,7 @@ class ProfileController extends Controller
 {
   public function actionPackages ($data)
   {
-    $packages = UserPackage::findAll($data["user_id"]);
+    $packages = UserPackage::findAll($data["id"]);
     $this->render("profile/userPackage", array(
       "packages" => $packages
     ));

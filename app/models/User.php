@@ -95,6 +95,7 @@ class User extends Model
     }
     session_start();
     $_SESSION["user"] = $user['User_name'];
+    $_SESSION["id"] = $user['User_id'];
     return true;
   }
 }

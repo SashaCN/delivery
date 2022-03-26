@@ -28,17 +28,15 @@ class AunthController extends Controller
     if (!empty($_POST)) {
       $user->load($_POST);
       if ($user->login()) {
-        $this->render("messages/success", array(
-          'message' => "Successful login"
-        ));
+        header("Location:index.php");
       } 
-
+    } else {
+      $this->render('user/login', array(
+        'user' => $user
+      ));
     }
 
 
-    $this->render('user/login', array(
-      'user' => $user
-    ));
   }
   public function actionLogout ()
   {
