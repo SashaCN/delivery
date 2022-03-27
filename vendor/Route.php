@@ -39,8 +39,8 @@ class Route
       if ($rout_way[0] == "manager") {
         $this->dir_controller .= "manager/";
         array_shift($rout_way);
-      } else if ($rout_way == "god"){
-        $this->dir_controller .= "god/";
+      } else if ($rout_way[0] == "admin"){
+        $this->dir_controller .= "admin/";
         array_shift($rout_way);
       }
 

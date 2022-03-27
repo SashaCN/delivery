@@ -1,14 +1,15 @@
 <?php 
 
-require_once "vendor/Controller.php";
+require_once "app/controllers/AdminController.php";
 require_once "app/models/Packege.php";
+require_once "app/models/Worker.php";
 
-class PackageController extends Controller
+class PackageController extends AdminController
 {
   public function actionIndex ()
   {
     $packages = Package::findAll();
-    $this->render("manager/package/index", array(
+    return $this->render("manager/package/index", array(
       "packages" => $packages
     ));
   }
