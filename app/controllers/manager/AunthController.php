@@ -25,4 +25,8 @@ class AunthController extends Controller
 
 
   }
+  // public function actionLogout ()
+  // {
+  //   echo "logout";
+  // }
 }

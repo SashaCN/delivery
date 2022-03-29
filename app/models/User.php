@@ -98,4 +98,10 @@ class User extends Model
     $_SESSION["id"] = $user['User_id'];
     return true;
   }
+  public function logout()
+  {
+    session_start();
+    session_unset();
+    return true;
+  }
 }

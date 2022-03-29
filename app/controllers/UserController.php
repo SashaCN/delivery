@@ -28,14 +28,19 @@ class  UserController extends Controller
       "users" => $users
     ));
   }
-  public function ActionView ($data)
+  public function actionView ($data)
   {
-    echo "<pre>";
-    if (isset($data["user_id"])) {
-      $user = User::find($data["user_id"]);
+    if (isset($data["id"])) {
+      $user = User::find($data["id"]);
       $this->render("user/view", array(
         "user" => $user
       ));
     }
+  }
+  public function actionProfile ($data)
+  {
+    return $this->render("user/profile", array(
+    
+    ));
   }
 }

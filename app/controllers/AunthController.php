@@ -40,6 +40,9 @@ class AunthController extends Controller
   }
   public function actionLogout ()
   {
-
+    $user = new User();
+    if ($user->logout()) {
+      header("Location:index.php");
+    }
   }
 }

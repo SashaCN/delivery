@@ -22,7 +22,7 @@
           <ul>
             <li><a href="index">Главная</a></li>
             <li><a href="profile-packages?id=<?=$_SESSION["id"]?>">Мои поссылки</a></li>
-            <li><a href="profile?id=<?=$_SESSION["id"]?>"><?=$_SESSION["user"]?></a></li>
+            <li><a href="user-view?id=<?=$_SESSION["id"]?>"><?=$_SESSION["user"]?></a></li>
           </ul>
         </nav>
       </div>
