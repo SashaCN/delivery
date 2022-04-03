@@ -29,7 +29,12 @@ class AunthController extends Controller
       $user->load($_POST);
       if ($user->login()) {
         header("Location:index.php");
-      } 
+      } else {
+        echo "<p class='error'><b>Упс, что-то пошло не так! Проверьте правильность веденной информации</b></p>";
+        $this->render('user/login', array(
+          'user' => $user
+        ));
+      }
     } else {
       $this->render('user/login', array(
         'user' => $user

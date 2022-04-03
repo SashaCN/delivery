@@ -116,3 +116,16 @@ h2{
   margin: 0;
   margin-bottom: 20px;
 }
+.error{
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  text-transform: uppercase;
+  color: red;
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+.registr-error{
+  background-color: transparent;
+  margin: 0;
+}

@@ -11,7 +11,7 @@
   <div class="header-line">
     <div class="wrapper">
       <div class="flex">
-        <form action="POST" class="search-form">
+        <form action="GET" class="search-form">
           <input type="search" name="search" id="search" class="search-input" placeholder="Search">
           <label for="search"></label>
           <input type="submit" value="" class="search-btn" id="submit">

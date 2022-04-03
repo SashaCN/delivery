@@ -10,7 +10,10 @@ if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
   require_once "main.php";
 }
 
+
 $route = new \vendor\Route;
 $route->start();
 
 ?>
+
+<script src="resourse/js/adminAunth.js"></script>

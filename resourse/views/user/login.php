@@ -1,26 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-  <link rel="stylesheet" href="resourse/css/password.css">
-</head>
-
-<body>
-  <form action="" method="POST">
-    <input type="text" name="phone" placeholder="phone">
-    <span><?=((isset($user->error["phone"]))?$user->error["phone"]:false)?></span>
+<link rel="stylesheet" href="resourse/css/login.css">
+<link rel="stylesheet" href="resourse/css/password.css">
+<div class="main">
+  <form class="login_form" action="" method="POST">
+    <p><input type="text" name="phone" placeholder="phone"></p>
     <p class="password_line">
       <input type="password" name="password" placeholder="password">
       <input type="checkbox" class="show">
       <span class="eye"></span>
     </p>
-    <input type="submit" value="Send">
+    <p><input type="submit" value="Send"></p>
   </form>
-  <script src="resourse/js/password.js"></script>
-</body>
-
-</html>
+</div>
+<script src="resourse/js/password.js"></script>

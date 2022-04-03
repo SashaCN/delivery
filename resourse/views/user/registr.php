@@ -1,33 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration</title>
+<div class="main">
+  <link rel="stylesheet" href="resourse/css/main.css">
+  <link rel="stylesheet" href="resourse/css/login.css">
   <link rel="stylesheet" href="resourse/css/password.css">
-</head>
-
-<body>
-  <form action="" method="POST">
-    <input type="text" name="phone" placeholder="phone">
-    <span><?=((isset($user->error["phone"]))?$user->error["phone"]:false)?></span>
-    <input type="text" name="name" placeholder="name">
-    <input type="text" name="default_address" placeholder="address">
+  <form class="login_form" action="" method="POST">
+    <p><input type="text" name="phone" placeholder="phone" required></p>
+    <p class="registr-error"><b><?=((isset($user->error["phone"]))?$user->error["phone"]:false)?></b></p>
+    <p><input type="text" name="name" placeholder="name" required></p>
+    <p class="registr-error"><b><?=((isset($user->error["name"]))?$user->error["name"]:false)?></b></p>
+    <p><input type="text" name="default_address" placeholder="address" required></p>
     <p class="password_line">
-      <input type="password" name="password" placeholder="password">
+      <input type="password" name="password" placeholder="password" required>
       <input type="checkbox" class="show">
       <span class="eye"></span>
     </p>
+    <p class="registr-error"><b><?=((isset($user->error["password"]))?$user->error["password"]:false)?></b></p>
     <p class="password_line">
-      <input type="password" name="confirm_password" placeholder="Confirm password">
+      <input type="password" name="confirm_password" placeholder="Confirm password" required>
       <input type="checkbox" class="show">
       <span class="eye"></span>
     </p>
-    <input type="submit" value="Send">
+    <p class="registr-error verify-password"><b></b></p>
+    <p><input type="submit" class="registr" value="Send"><p>
   </form>
-  <script src="resourse/js/password.js"></script>
-</body>
-
-</html>
+</div>
+<script src="resourse/js/password.js"></script>
