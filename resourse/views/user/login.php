@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="resourse/css/password.css">
 <div class="main">
   <form class="login_form" action="" method="POST">
-    <p><input type="text" name="phone" placeholder="phone"></p>
+    <p><input type="text" name="loginPhone" placeholder="phone"></p>
     <p class="password_line">
       <input type="password" name="password" placeholder="password">
       <input type="checkbox" class="show">

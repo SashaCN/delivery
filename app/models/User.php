@@ -10,6 +10,7 @@ class User extends Model
   public $name;
   public $password;
   public $default_address;
+  public $loginPhone;
 
 
   public function setPhone ($phone)
@@ -28,6 +29,17 @@ class User extends Model
     }
   }
 
+  public function setLoginPhone ($phone)
+  {
+    $user = $this->findUserByPhone($phone);
+    if (empty($user)) {
+      $this->error['phone'] = "Аккаунт не существует!";
+      return false;
+    }
+    $this->phone = $phone;
+    return true;
+  }
+
   public function setName ($name)
   {
     if (!preg_match('#([A-Z][a-z]+)\s([A-Z][a-z]+)#', $name)) {
@@ -40,7 +52,7 @@ class User extends Model
 
   public function setPassword($password)
   {
-    if (!preg_match('#(?=\S{12,25})#', $password)) {
+    if (!preg_match('#(?=\S{12,55})#', $password)) {
       $this->error['password'] = "Длина пароля должна находится в диапазоне от 12 до 25 символов";
       return false;
     }
@@ -64,14 +76,17 @@ class User extends Model
   {
     $pdo = Db::connection();
 
-    $stmt = $pdo->prepare('SELECT * FROM user WHERE Phone = ?');
+    $stmt = $pdo->prepare('SELECT * FROM user WHERE Phone = :phone');
 
-    $stmt->execute([$phone]);
+
+    $stmt->execute(['phone' => $phone]);
 
     $item = $stmt->fetch();
-    
-    var_dump($item);die;
-    return $item;
+    var_dump($item);
+
+    return array('User_id' => $item['User_id'],
+                  'User_name' => $item['User_name']
+    );
   }
   
   static function find (int $id)
@@ -124,7 +139,7 @@ class User extends Model
 
   public function login ()
   {
-    $user = $this->findUserByPhone($this->phone);
+    $user = $this->findUserByPhone($this->loginPhone);
     // var_dump($user);die;
     if (empty($user)) {
       return false;
@@ -137,6 +152,7 @@ class User extends Model
     $_SESSION["id"] = $user['User_id'];
     return true;
   }
+
   public function logout()
   {
     session_start();
