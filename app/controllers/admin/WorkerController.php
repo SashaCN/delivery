@@ -10,10 +10,12 @@ class WorkerController extends AdminController
   {
     parent::__construct();
     if (!Worker::aunthIsAdmin()) {
-        header("Location:../manager/package-list");
+      header("Location:index.php");
     }
 
   }
+
+  
 
   public function actionCreate ()
   {

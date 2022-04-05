@@ -9,14 +9,10 @@ class AunthController extends Controller
   public function actionLogin ()
   {
     $worker = new Worker();
-     
     if (!empty($_POST)) {
       $worker->load($_POST);
       if ($worker->login()) {
-        return $this->render('message/success', array(
-          'message' => "Hello admin"
-        ));
-        // header("Location:index.php");
+        header("Location:index.php");
       } 
     }
     return $this->render('manager/aunth/login', array(
@@ -25,8 +21,22 @@ class AunthController extends Controller
 
 
   }
-  // public function actionLogout ()
-  // {
-  //   echo "logout";
-  // }
+
+  public function actionProfile ($data)
+  {
+    if (isset($data["id"])) {
+      $worker = Worker::find($data["id"]);
+      return $this->render("manager/worker-view", array(
+        "worker" => $worker
+      ));
+    }
+  }
+
+  public function actionLogout ()
+  {
+    $worker = new Worker();
+    if ($worker->logout()) {
+      header("Location:../index.php");
+    }
+  }
 }

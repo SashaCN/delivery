@@ -71,4 +71,24 @@ class Worker extends Model
     }
     return false;
   }
+
+  static function find (int $id)
+  {
+    $pdo = Db::connection();
+
+    $stmt = $pdo->prepare('SELECT * FROM workers WHERE worker_id = ?');
+
+    $stmt->execute([$id]);
+
+    $item = $stmt->fetch();
+
+    return $item;
+  }
+  
+  public function logout()
+  {
+    session_start();
+    session_unset();
+    return true;
+  }
 }

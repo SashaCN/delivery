@@ -6,6 +6,8 @@ require_once "vendor/Route.php";
 session_start();
 if (isset($_SESSION['user']) && !empty($_SESSION['user'])) {
   require_once "resourse/views/user/cabinet.php";
+} elseif (isset($_SESSION['worker']) && !empty($_SESSION['worker'])) {
+  require_once "resourse/views/manager/cabinet.php";
 } else {
   require_once "main.php";
 }

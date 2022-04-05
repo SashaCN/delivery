@@ -77,7 +77,7 @@ class Route
     
     if (file_exists($contr_dir)) {
       require_once $contr_dir;
-      
+      // echo $contr_dir;die;
       if (class_exists($this->controller_name)) {
         $controller = new $this->controller_name();
 
